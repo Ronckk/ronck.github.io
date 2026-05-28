@@ -7,37 +7,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-    <script>
-    // Laad de navigatie in
-    fetch('nav.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('main-header').innerHTML = data;
-            // Maak de huidige pagina actief
-            document.getElementById('nav-home').classList.add('active');
-        });
-
-    // Laad de footer in
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('main-footer').innerHTML = data;
-        });
-</script>
 <body>
 
-    <header id="main-header"></header>
+    <header>
+        <div class="logo">RICK.MEDIA</div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="projects.html">Projecten</a>
+            <a href="contact.html">Contact & Prijzen</a>
+        </nav>
+    </header>
 
     <div class="container">
         <section class="hero-section">
             <div class="profile-wrapper">
-                <div class="drone-icon">
-                    <i class="fa-solid fa-crosshairs drone-body"></i>
-                    <i class="fa-solid fa-asterisk drone-prop prop-tl"></i>
-                    <i class="fa-solid fa-asterisk drone-prop prop-tr"></i>
-                    <i class="fa-solid fa-asterisk drone-prop prop-bl"></i>
-                    <i class="fa-solid fa-asterisk drone-prop prop-br"></i>
-                </div>
+                <i class="fa-solid fa-camera-retro drone-static"></i>
                 <div class="age-badge">21 JAAR</div>
             </div>
             <h1>RICK</h1>
@@ -58,17 +42,17 @@
             <div class="skill-card nature">
                 <i class="fa-solid fa-tree"></i>
                 <h3>Natuur</h3>
-                <p>Cinematic dronebeelden van uitgestrekte bossen, wateren en landschappen vanuit adembenemende perspectieven.</p>
+                <p>Cinematic dronebeelden van uitgestrekte bossen en landschappen vanuit adembenemende perspectieven.</p>
             </div>
             <div class="skill-card cars">
                 <i class="fa-solid fa-car-side"></i>
                 <h3>Auto's</h3>
-                <p>Dynamische automotive video's, rollshutter-shots en brute night-photography die brute wagens perfect vastleggen.</p>
+                <p>Dynamische automotive video's, rollshutter-shots en brute wagens perfect vastgelegd.</p>
             </div>
             <div class="skill-card weddings">
                 <i class="fa-solid fa-heart"></i>
                 <h3>Bruiloften</h3>
-                <p>De mooiste dag van jullie leven, vakkundig verwerkt tot een emotionele en meeslepende cinematic aftermovie.</p>
+                <p>De mooiste dag van jullie leven, vakkundig verwerkt tot een emotionele cinematic aftermovie.</p>
             </div>
         </section>
 
@@ -79,25 +63,25 @@
                 <button class="carousel-btn btn-next" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
                 
                 <div class="carousel-track" id="track">
-                    <div class="carousel-slide slide-1">
+                    <div class="carousel-slide slide-1" onclick="window.location.href='project-porsche.html'" style="cursor:pointer;">
                         <div class="slide-content">
                             <span class="slide-tag tag-nature">Natuur / Drone</span>
                             <h3>The Highland Ridge</h3>
-                            <p>Een mistige ochtendshoot in de Ardennen vastgelegd in vlijmscherpe 4K kwaliteit.</p>
+                            <p>Klik om dit project te bekijken &rarr;</p>
                         </div>
                     </div>
-                    <div class="carousel-slide slide-2">
+                    <div class="carousel-slide slide-2" onclick="window.location.href='project-porsche.html'" style="cursor:pointer;">
                         <div class="slide-content">
                             <span class="slide-tag tag-cars">Automotive</span>
                             <h3>Neon Midnight Drift</h3>
-                            <p>Cinematic night-shoot van een custom Porsche 911 tussen de wolkenkrabbers.</p>
+                            <p>Klik om dit project te bekijken &rarr;</p>
                         </div>
                     </div>
-                    <div class="carousel-slide slide-3">
+                    <div class="carousel-slide slide-3" onclick="window.location.href='project-porsche.html'" style="cursor:pointer;">
                         <div class="slide-content">
                             <span class="slide-tag tag-weddings">Bruiloft</span>
                             <h3>Zomer op het Landgoed</h3>
-                            <p>Prachtige drone-overzichten gecombineerd met intieme momenten van het bruidspaar.</p>
+                            <p>Klik om dit project te bekijken &rarr;</p>
                         </div>
                     </div>
                 </div>
@@ -115,7 +99,9 @@
         </div>
     </div>
 
-    <footer id="main-footer"></footer>
+    <footer>
+        <p>&copy; 2026 RICK.MEDIA &bull; Live op GitHub Pages</p>
+    </footer>
 
     <script>
         let currentIndex = 0;
@@ -142,8 +128,6 @@
             currentIndex = index;
             updateCarousel();
         }
-
-        // Automatische slider interval
         setInterval(() => { moveSlide(1); }, 6000);
     </script>
 </body>
