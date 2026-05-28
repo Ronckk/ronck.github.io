@@ -6,27 +6,24 @@
     <title>Rick | Drone & Media Creator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset & Basis Stijlen */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background: radial-gradient(circle at center, #16122c 0%, #07050f 100%);
             color: #ffffff;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem 1rem;
+            line-height: 1.6;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Tech-grid achtergrond effect */
+        /* Subtiele achtergrond grid */
         body::before {
             content: '';
             position: absolute;
@@ -34,64 +31,101 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
             z-index: 1;
+            pointer-events: none;
         }
 
-        /* Het Visitekaartje / CV Container */
-        .cv-card {
+        /* Navigatiebalk */
+        header {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #00f2fe, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: #b0b0cc;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #00f2fe;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            margin: 2rem auto 6rem auto;
             position: relative;
             z-index: 2;
-            background: rgba(22, 18, 44, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            border-radius: 30px;
-            padding: 3rem 2rem;
-            width: 100%;
-            max-width: 650px;
-            text-align: center;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
-                        0 0 40px rgba(0, 242, 254, 0.1);
         }
 
-        /* Avatar / Drone Icoon met Pulse */
-        .profile-img-container {
-            width: 100px;
-            height: 100px;
+        /* Hero Kop */
+        .hero-section {
+            background: rgba(22, 18, 44, 0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 242, 254, 0.05);
+            margin-bottom: 4rem;
+        }
+
+        .profile-wrapper {
+            width: 110px;
+            height: 110px;
             margin: 0 auto 1.5rem;
             background: linear-gradient(45deg, #ff007f, #00f2fe);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
             position: relative;
         }
 
-        .profile-img-container i {
-            font-size: 2.5rem;
+        .profile-wrapper i {
+            font-size: 2.8rem;
             color: #fff;
         }
 
-        /* Leeftijd Badge */
         .age-badge {
             position: absolute;
-            bottom: -5px;
-            right: -5px;
+            bottom: -3px;
+            right: -3px;
             background: #ff007f;
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 700;
-            box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
         }
 
-        /* Naam met Neon Overloop */
         h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 900;
             margin-bottom: 0.5rem;
             letter-spacing: -1px;
@@ -103,175 +137,405 @@
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #00f2fe;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
             text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
         }
 
-        .bio {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #b0b0cc;
-            margin-bottom: 2.5rem;
-        }
-
-        /* Expertise Grids (De categorieën) */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .skill-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 1.2rem 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            background: rgba(0, 242, 254, 0.05);
-            border-color: #00f2fe;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
-        }
-
-        .skill-card i {
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
-            display: block;
-        }
-
-        /* Custom kleuren voor de icoontjes */
-        .skill-card.nature i { color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.3); }
-        .skill-card.cars i { color: #ff007f; text-shadow: 0 0 10px rgba(255, 0, 127, 0.3); }
-        .skill-card.weddings i { color: #00f2fe; text-shadow: 0 0 10px rgba(0, 242, 254, 0.3); }
-
-        .skill-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        /* Socials & Contact Knoppen */
+        /* Alleen Insta & LinkedIn */
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            gap: 2rem;
+            margin-bottom: 1rem;
         }
 
         .social-icon {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #b0b0cc;
             text-decoration: none;
             transition: all 0.3s ease;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .social-icon:hover {
             color: #ffffff;
-            transform: scale(1.1);
+            transform: translateY(-5px);
         }
 
-        .social-icon.instagram:hover { border-color: #ff007f; box-shadow: 0 0 15px rgba(255, 0, 127, 0.5); color: #ff007f; }
-        .social-icon.youtube:hover { border-color: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); color: #ff0000; }
-        .social-icon.email:hover { border-color: #00f2fe; box-shadow: 0 0 15px rgba(0, 242, 254, 0.5); color: #00f2fe; }
+        .social-icon.instagram:hover { 
+            border-color: #ff007f; 
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6); 
+            color: #ff007f; 
+        }
 
-        /* CTA Boeken Knop */
-        .cta-btn {
+        .social-icon.linkedin:hover { 
+            border-color: #0077b5; 
+            box-shadow: 0 0 20px rgba(0, 119, 181, 0.6); 
+            color: #0077b5; 
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
             display: block;
+            width: 50px;
+            height: 3px;
+            background: #ff007f;
+            margin: 10px auto 0 auto;
+            box-shadow: 0 0 10px #ff007f;
+            border-radius: 2px;
+        }
+
+        /* Skills/Expertise Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .skill-card {
+            background: rgba(22, 18, 44, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(22, 18, 44, 0.8);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .skill-card.nature:hover { border-color: #00ff88; box-shadow: 0 0 25px rgba(0, 255, 136, 0.25); }
+        .skill-card.cars:hover { border-color: #ff007f; box-shadow: 0 0 25px rgba(255, 0, 127, 0.25); }
+        .skill-card.weddings:hover { border-color: #00f2fe; box-shadow: 0 0 25px rgba(0, 242, 254, 0.25); }
+
+        .skill-card.nature i { color: #00ff88; text-shadow: 0 0 15px rgba(0, 255, 136, 0.4); }
+        .skill-card.cars i { color: #ff007f; text-shadow: 0 0 15px rgba(255, 0, 127, 0.4); }
+        .skill-card.weddings i { color: #00f2fe; text-shadow: 0 0 15px rgba(0, 242, 254, 0.4); }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: #b0b0cc;
+            font-size: 0.95rem;
+        }
+
+        /* Carousel Bouw */
+        .carousel-container {
+            position: relative;
             width: 100%;
-            padding: 16px;
+            overflow: hidden;
+            border-radius: 24px;
+            border: 1px solid rgba(121, 40, 202, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            background: #110d26;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 450px;
+            padding: 4rem 3rem;
+        }
+
+        /* Unsplash placeholders voor je werk (kun je later je eigen linkjes in zetten) */
+        .slide-1 { background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(11, 8, 19, 0.95) 90%), url('https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80') center/cover; }
+        .slide-2 { background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(11, 8, 19, 0.95) 90%), url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80') center/cover; }
+        .slide-3 { background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(11, 8, 19, 0.95) 90%), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover; }
+
+        .slide-content {
+            position: relative;
+            z-index: 5;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .slide-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .tag-nature { background: rgba(0, 255, 136, 0.2); color: #00ff88; border: 1px solid rgba(0, 255, 136, 0.4); }
+        .tag-cars { background: rgba(255, 0, 127, 0.2); color: #ff007f; border: 1px solid rgba(255, 0, 127, 0.4); }
+        .tag-weddings { background: rgba(0, 242, 254, 0.2); color: #00f2fe; border: 1px solid rgba(0, 242, 254, 0.4); }
+
+        .slide-content h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .slide-content p {
+            color: #b0b0cc;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(22, 18, 44, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: #7928ca;
+            border-color: #00f2fe;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+        }
+
+        .btn-prev { left: 20px; }
+        .btn-next { right: 20px; }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: #00f2fe;
+            box-shadow: 0 0 10px #00f2fe;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        /* Grote Knop naar Projecten */
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
             font-size: 1.1rem;
             font-weight: 700;
             color: #fff;
             text-decoration: none;
             background: linear-gradient(45deg, #ff007f, #7928ca);
             border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
-        .cta-btn:hover {
+        .view-all-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 35px rgba(255, 0, 127, 0.6),
-                        0 0 15px rgba(0, 242, 254, 0.4);
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.7), 0 0 15px rgba(0, 242, 254, 0.4);
             background: linear-gradient(45deg, #00f2fe, #7928ca);
         }
 
-        /* Animatie voor de naam-gradient */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #555570;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 6rem;
+        }
+
         @keyframes shine {
             to { background-position: 200% center; }
         }
 
-        /* Responsive voor telefoon */
-        @media (max-width: 480px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 768px) {
+            .skills-grid { grid-template-columns: 1fr; }
             h1 { font-size: 2.8rem; }
+            .carousel-slide { padding: 2rem 1.5rem; min-height: 380px; }
+            .slide-content h3 { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="cv-card">
-        <div class="profile-img-container">
-            <i class="fa-solid to fa-drone-front"><i class="fa-solid fa-helicopter"></i></i> <div class="age-badge">21 J/O</div>
-        </div>
+    <header>
+        <div class="logo">RICK.MEDIA</div>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="projects.html">Projecten</a>
+        </nav>
+    </header>
 
-        <h1>HI, IK BEN RICK</h1>
-        <div class="subtitle">Drone Pilot & Media Creator</div>
-        
-        <p class="bio">
-            Gepassioneerd door unieke perspectieven en cinematic beelden. Vanuit de lucht of strak vanaf de grond: ik leg verhalen vast die impact maken.
-        </p>
+    <div class="container">
+        <section class="hero-section">
+            <div class="profile-wrapper">
+                <i class="fa-solid fa-helicopter"></i>
+                <div class="age-badge">21 JAAR</div>
+            </div>
+            <h1>RICK</h1>
+            <div class="subtitle">Drone Pilot & Media Creator</div>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/JOUW_GEBRUIKERSNAAM" target="_blank" class="social-icon instagram" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com/in/JOUW_LINKEDIN" target="_blank" class="social-icon linkedin" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </section>
 
-        <div class="skills-grid">
+        <h2 class="section-title">Mijn Expertises</h2>
+        <section class="skills-grid">
             <div class="skill-card nature">
                 <i class="fa-solid fa-tree"></i>
                 <h3>Natuur</h3>
+                <p>Cinematic dronebeelden van uitgestrekte bossen, wateren en landschappen vanuit adembenemende perspectieven.</p>
             </div>
             <div class="skill-card cars">
                 <i class="fa-solid fa-car-side"></i>
                 <h3>Auto's</h3>
+                <p>Dynamische automotive video's, rollshutter-shots en brute night-photography die brute wagens perfect vastleggen.</p>
             </div>
             <div class="skill-card weddings">
                 <i class="fa-solid fa-heart"></i>
                 <h3>Bruiloften</h3>
+                <p>De mooiste dag van jullie leven, vakkundig verwerkt tot een emotionele en meeslepende cinematic aftermovie.</p>
+            </div>
+        </section>
+
+        <h2 class="section-title">Uitgelichte Projecten</h2>
+        <div style="text-align: center; margin-top: 2rem;">
+            <div class="carousel-container">
+                <button class="carousel-btn btn-prev" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn btn-next" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                
+                <div class="carousel-track" id="track">
+                    <div class="carousel-slide slide-1">
+                        <div class="slide-content">
+                            <span class="slide-tag tag-nature">Natuur / Drone</span>
+                            <h3>The Highland Ridge</h3>
+                            <p>Een mistige ochtendshoot in de Ardennen vastgelegd in vlijmscherpe 4K kwaliteit.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide slide-2">
+                        <div class="slide-content">
+                            <span class="slide-tag tag-cars">Automotive</span>
+                            <h3>Neon Midnight Drift</h3>
+                            <p>Cinematic night-shoot van een custom Porsche 911 tussen de wolkenkrabbers.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide slide-3">
+                        <div class="slide-content">
+                            <span class="slide-tag tag-weddings">Bruiloft</span>
+                            <h3>Zomer op het Landgoed</h3>
+                            <p>Prachtige drone-overzichten gecombineerd met intieme momenten van het bruidspaar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-nav">
+                <div class="carousel-indicator active" onclick="setSlide(0)"></div>
+                <div class="carousel-indicator" onclick="setSlide(1)"></div>
+                <div class="carousel-indicator" onclick="setSlide(2)"></div>
+            </div>
+
+            <div style="margin-top: 3.5rem;">
+                <a href="projects.html" class="view-all-btn">Bekijk Alle Projecten <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
-
-        <div class="social-links">
-            <a href="https://instagram.com" target="_blank" class="social-icon instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://youtube.com" target="_blank" class="social-icon youtube">
-                <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a href="mailto:rick@example.com" class="social-icon email">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-        </div>
-
-        <a href="mailto:rick@example.com" class="cta-btn">Let's shoot some magic</a>
     </div>
 
+    <footer>
+        <p>&copy; 2026 RICK.MEDIA &bull; Live op GitHub Pages</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const track = document.getElementById('track');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            indicators.forEach((ind, idx) => {
+                if(idx === currentIndex) ind.classList.add('active');
+                else ind.classList.remove('active');
+            });
+        }
+
+        function moveSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            updateCarousel();
+        }
+
+        function setSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Automatisch doorschuiven elke 6 seconden
+        setInterval(() => { moveSlide(1); }, 6000);
+    </script>
 </body>
 </html>
