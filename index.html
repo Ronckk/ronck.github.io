@@ -1,12 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Vibe Website</title>
+    <style>
+        /* Reset & Basis Stijlen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #141124 0%, #0b0813 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Subtiele achtergrond grid voor die extra tech-look */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+
+        /* Centraal Kaartje (Glassmorphism) */
+        .neon-container {
+            position: relative;
+            z-index: 2;
+            background: rgba(20, 17, 36, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 3rem;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 0, 128, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+                        inset 0 0 20px rgba(0, 242, 254, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        /* Moderne Heading met Neon Overloop (Gradient) */
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #ff007f, #7928ca, #00f2fe);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 5s ease infinite;
+        }
+
+        /* Paragraaf met zachte glow */
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #dae1e7;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        /* Call to Action Button met zieke glow-effecten */
+        .neon-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff007f, #7928ca);
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+        }
+
+        .neon-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.8),
+                        0 0 10px rgba(121, 40, 202, 0.6);
+            background: linear-gradient(45deg, #7928ca, #00f2fe);
+        }
+
+        /* Animatie voor de bewegende verloopkleuren */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+    <div class="neon-container">
+        <h1>Future Is Now</h1>
+        <p>Dit is een compleet gemoderniseerde paragraaf. De achtergrond heeft een diepe verloop, de tekst knalt eruit met een verloop en een subtiele neon glow houdt het strak.</p>
+        <a href="#" class="neon-btn">Ontdek Meer</a>
+    </div>
 
 </body>
 </html>
