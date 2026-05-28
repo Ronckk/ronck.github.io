@@ -7,15 +7,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+    <script>
+    // Laad de navigatie in
+    fetch('nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('main-header').innerHTML = data;
+            // Maak de huidige pagina actief
+            document.getElementById('nav-projects').classList.add('active');
+        });
+
+    // Laad de footer in
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('main-footer').innerHTML = data;
+        });
+</script>
 <body>
 
-    <header>
-        <div class="logo">RICK.MEDIA</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html" class="active">Projecten</a>
-        </nav>
-    </header>
+    <header id="main-header"></header>
 
     <div class="container">
         <h1>Mijn Portfolio</h1>
@@ -67,9 +78,7 @@
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 RICK.MEDIA &bull; Gemaakt voor GitHub Pages</p>
-    </footer>
+    <footer id="main-footer"></footer>
 
 </body>
 </html>
