@@ -489,3 +489,84 @@ footer {
     .carousel-slide { padding: 2rem 1.5rem; min-height: 380px; }
     .slide-content h3 { font-size: 1.5rem; }
 }
+
+/* Update voor het nieuwe minimalistische drone/camera icoon */
+.profile-wrapper i.drone-static {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+}
+
+/* Prijzen & Contact Specifieke Styling */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 3rem 0;
+    background: rgba(22, 18, 44, 0.45);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+}
+
+.pricing-table th {
+    background: rgba(121, 40, 202, 0.2);
+    color: #00f2fe;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(0, 242, 254, 0.3);
+}
+
+.pricing-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.3s;
+}
+
+.pricing-table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.pricing-table td strong {
+    color: #ff007f;
+    text-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+}
+
+.contact-box {
+    background: rgba(22, 18, 44, 0.55);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: transparent;
+    border: 2px solid #00f2fe;
+    color: #00f2fe;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    margin: 0.5rem;
+}
+
+.contact-btn:hover {
+    background: #00f2fe;
+    color: #07050f;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+}
